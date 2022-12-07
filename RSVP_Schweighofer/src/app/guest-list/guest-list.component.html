@@ -1,0 +1,32 @@
+<br />
+<h1>Guest List</h1>
+<br />
+<table>
+  <tbody>
+    <tr *ngFor="let data of this.getData()">
+      <mat-card *ngIf="data.fields.willAttend">
+        <mat-card-content>
+          <mat-label>Name: {{ data.fields.guestName | json }}</mat-label>
+          <br />
+          <mat-label
+            >Additional Information:
+            {{ data.fields.additionalInformation | json }}</mat-label
+          >
+          <br />
+          <mat-label *ngIf="data.fields.additionalGuest">
+            Additional Guest:
+            {{ data.fields.nameOfAdditionalGuest | json }}</mat-label
+          > </mat-card-content
+        ><br />
+      </mat-card>
+    </tr>
+  </tbody>
+</table>
+<mat-card>
+  <mat-card-content>
+    <label>
+      Amount of Guests attending:
+      <input [value]="this.totalAmountOfGuests()" disabled />
+    </label>
+  </mat-card-content>
+</mat-card>

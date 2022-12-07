@@ -1,0 +1,42 @@
+<br />
+<h1>Registration</h1>
+<br />
+<mat-card>
+  <mat-card-content>
+    <mat-label> Name: </mat-label>
+    <input
+      type="text"
+      name="GuestName"
+      [(ngModel)]="this.currentItem.guestName"
+    />
+    <mat-label>
+      <br />
+      <br />
+      Will you attend?
+    </mat-label>
+    <mat-checkbox color="primary" [(ngModel)]="this.currentItem.willAttend"> Yes </mat-checkbox>
+    <mat-checkbox [disabled]="this.currentItem.willAttend" color="primary"> No </mat-checkbox>
+    <br />
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Additional Information</mat-label>
+      <textarea matInput cols="80" rows="4" [(ngModel)]="this.currentItem.additionalInformation"></textarea>
+    </mat-form-field>
+    <br /><br />
+    <mat-label>Will you bring a +1? </mat-label>
+    <mat-checkbox color="primary" [(ngModel)]="this.currentItem.additionalGuest">
+      Yes
+    </mat-checkbox>
+    <mat-checkbox  color="primary" [disabled]="this.currentItem.additionalGuest">
+      No
+    </mat-checkbox>
+    <br />
+    <br />
+    <mat-label >Name of your +1: </mat-label>
+    <input type="text" name="NameOfPlusOne" [(ngModel)]="this.currentItem.nameOfAdditionalGuest" />
+  </mat-card-content>
+</mat-card>
+<br />
+<button mat-flat-button color="primary" (click)="this.addGuest()">
+  Submit
+</button>
